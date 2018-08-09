@@ -13,11 +13,12 @@ import java.sql.SQLException;
  *
  * @author luis
  */
+
 public class Conexion {
     public static Connection Cont;
     static String Driver = "com.mysql.jdbc.Driver";
-    static String User = "root";
-    static String Password = "1234";
+    static String User = "";
+    static String Password = "";
     static String Url = "jdbc:mysql://localhost:3306/cafeteria?zeroDateTimeBehavior=convertToNull";
     
     
@@ -30,7 +31,7 @@ public class Conexion {
       Cont = DriverManager.getConnection(Url, User, Password);
       
       if(Cont != null){
-          System.out.println("Conexion establecida");
+          //System.out.println("Conexion establecida");
       }
       
      }catch(ClassNotFoundException | SQLException e){

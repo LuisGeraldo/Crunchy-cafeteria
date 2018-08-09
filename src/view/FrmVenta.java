@@ -12,7 +12,6 @@ import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -120,8 +119,6 @@ public class FrmVenta extends JFrame{
         imageCafeteria = new JLabel();
         userName = new JLabel("Nombre usuario");
       
-        
-        
         
         ventasLabel = new JLabel("Ventas");
         clienteLabel = new JLabel("Cliente: ");
@@ -299,6 +296,7 @@ public class FrmVenta extends JFrame{
        Color colorPrincipal = res.Colorear(255, 115, 0);//res.Colorear(0, 30, 52);
        Color colorSecundario = res.Colorear(0, 30, 52);//res.Colorear(0, 169, 178);
        Font labelFont = res.Fuente("Arial", 1 , 18);
+       Font campos = res.Fuente("Arial", 1, 15);
        
        panelPrincipal.setBackground(Color.WHITE);
        panelSecundario.setBackground(colorSecundario);
@@ -376,7 +374,7 @@ public class FrmVenta extends JFrame{
        empleadoField.setBackground(Color.white);
        empleadoField.setBorder(null);
        empleadoField.setForeground(Color.black);
-       empleadoField.setFont(labelFont);
+       empleadoField.setFont(campos);
        empleadoField.setEditable(false);
        empleadoField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, res.Colorear(255, 115, 0)));
  
