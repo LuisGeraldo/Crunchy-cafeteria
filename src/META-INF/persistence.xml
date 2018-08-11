@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="prjCafeteriaPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>entidades.Estado</class>
+    <class>entidades.DetalleFactura</class>
+    <class>entidades.TipoUsuario</class>
+    <class>entidades.Marca</class>
+    <class>entidades.Sucursal</class>
+    <class>entidades.Factura</class>
+    <class>entidades.Empleado</class>
+    <class>entidades.TandaLabor</class>
+    <class>entidades.TipoCliente</class>
+    <class>entidades.Proveedor</class>
+    <class>entidades.Usuario</class>
+    <class>entidades.Cafeteria</class>
+    <class>entidades.Cliente</class>
+    <class>entidades.Articulo</class>
+    <class>entidades.ModoPago</class>
+    <class>entidades.EstadoFactura</class>
+    <class>entidades.TipoEmpleado</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cafeteria?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="1234"/>
+    </properties>
+  </persistence-unit>
+</persistence>

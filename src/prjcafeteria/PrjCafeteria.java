@@ -5,9 +5,16 @@
  */
 package prjcafeteria;
 
+
+import controller.EstadoJpaController;
+import controller.MarcaJpaController;
+import entidades.Estado;
+import entidades.Marca;
 import view.FrmInicio;
 import view.FrmLogin;
 import view.FrmVenta;
+import view.cruds.FrmMarcas;
+
 
 
 /**
@@ -20,12 +27,8 @@ public class PrjCafeteria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       new FrmLogin().setVisible(true);
-//       
-//       FrmInicio inicio = new FrmInicio();
-//       inicio.setVisible(true);
-        
-        
+       new FrmLogin().setVisible(true);      
+       
     }
     
 }

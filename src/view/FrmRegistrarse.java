@@ -48,6 +48,7 @@ public class FrmRegistrarse extends JFrame{
     ActionListener listener;
     Registrarse registrar;
     Validacion validacion;
+    final int userRol = 1;
   
    
     public FrmRegistrarse(){
@@ -167,7 +168,7 @@ public class FrmRegistrarse extends JFrame{
                   JOptionPane.showMessageDialog(null,"El nombre de usuario ya existe", "Cafeteria uno", JOptionPane.WARNING_MESSAGE, res.ColocarImagen("/view/imagenes/complain.png"));    
                       
                   }else{
-                      if(registrar.Registrar(userName, email, contrasena, 2)){ 
+                      if(registrar.Registrar(userName, email, contrasena, userRol)){ 
                      JOptionPane.showMessageDialog(null,"Usuario creado", "Cafeteria uno", JOptionPane.CLOSED_OPTION, res.ColocarImagen("/view/imagenes/man.png"));
                    
                      new FrmLogin().setVisible(true);

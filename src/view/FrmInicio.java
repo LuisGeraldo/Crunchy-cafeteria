@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import model.Utileria;
+import view.cruds.FrmMarcas;
 
 
 /**
@@ -30,6 +31,8 @@ public class FrmInicio extends JFrame{
     Utileria res; 
     public JPanel panelPrincipal = null;
     public JPanel panelSecundario = null;
+    public JPanel panelServicio = null;
+    public JPanel panelMantenimiento = null;
     
     public JButton cerrarButton;
     public JButton miniButton;
@@ -48,9 +51,11 @@ public class FrmInicio extends JFrame{
     public JButton articuloButton;
  
     
+    //Mantenimiento controles
+     public JButton marcaButton;
+     public JLabel marcaLabel;
     
     
-            
     public JLabel iconPanel = null;
     public JLabel imageCafeteria = null;
     public JLabel userName = null;
@@ -95,6 +100,8 @@ public class FrmInicio extends JFrame{
         contenedor = getContentPane();
         panelPrincipal = new JPanel();
         panelSecundario = new JPanel();
+        panelServicio = new JPanel();
+        panelMantenimiento = new JPanel();
 
         cerrarButton = new JButton();
         miniButton = new JButton();
@@ -135,7 +142,13 @@ public class FrmInicio extends JFrame{
     
         panelPrincipal.setLayout(null);
         panelSecundario.setLayout(null);
+        panelServicio.setLayout(null);
+        panelMantenimiento.setLayout(null);
        
+        panelMantenimiento.setVisible(false);
+        //Mantenimiento 
+        marcaButton = new JButton();
+        marcaLabel = new JLabel("Marcas");
         
       /**
         * Agregando el panel principal(Jpanel) al content 
@@ -145,27 +158,30 @@ public class FrmInicio extends JFrame{
         
         contenedor.add(panelPrincipal);
         panelPrincipal.add(panelSecundario);
+        panelPrincipal.add(panelServicio);
+        panelPrincipal.add(panelMantenimiento);
         
           
         panelPrincipal.add(cerrarButton);
         panelPrincipal.add(miniButton);
       //  panelPrincipal.add(imageCafeteria);
-        panelPrincipal.add(buscarButton);
-        panelPrincipal.add(buscarField);
-        panelPrincipal.add(ventas);
-        panelPrincipal.add(cliente);
-        panelPrincipal.add(cafeteria);
-        panelPrincipal.add(proveedores);
-        panelPrincipal.add(inventario);
-        panelPrincipal.add(articuloButton);
+      
+       // panelPrincipal.add(buscarButton);
+      //panelPrincipal.add(buscarField);
+        panelServicio.add(ventas);
+        panelServicio.add(cliente);
+        panelServicio.add(cafeteria);
+        panelServicio.add(proveedores);
+        panelServicio.add(inventario);
+        panelServicio.add(articuloButton);
         
         //Label
-        panelPrincipal.add(ventasLabel);
-        panelPrincipal.add(clientesLabel);
-        panelPrincipal.add(cafeteriaLabel);
-        panelPrincipal.add(proovedoresLabel);
-        panelPrincipal.add(inventarioLabel);
-        panelPrincipal.add(articuloLabel);
+        panelServicio.add(ventasLabel);
+        panelServicio.add(clientesLabel);
+        panelServicio.add(cafeteriaLabel);
+        panelServicio.add(proovedoresLabel);
+        panelServicio.add(inventarioLabel);
+        panelServicio.add(articuloLabel);
                 
         
         
@@ -177,6 +193,10 @@ public class FrmInicio extends JFrame{
         panelSecundario.add(ayuda);
         panelSecundario.add(servicios);
         
+        
+        //Panel mantenimiento
+        panelMantenimiento.add(marcaButton);
+        panelMantenimiento.add(marcaLabel);
          
        /**
          * Funciones para posicionar, dimensionar y dar estilos a los elementos
@@ -201,6 +221,24 @@ public class FrmInicio extends JFrame{
                     
                 }
                 
+                if(e.getSource() == mantenimiento){
+                    panelMantenimiento.setVisible(true);
+                    panelServicio.setVisible(false);
+                    
+                }
+                
+                 if(e.getSource() == servicios){
+                    panelMantenimiento.setVisible(false);
+                    panelServicio.setVisible(true);
+                    
+                }
+                
+                if(e.getSource() == marcaButton){
+                    FrmMarcas marcas = new FrmMarcas();    
+                    marcas.setVisible(true);
+                    setVisible(false);
+                    marcas.userName.setText(userName.getText());
+                }
                 
                //Accion del boton cerrar        
                if(e.getSource() == cerrarButton){
@@ -217,6 +255,10 @@ public class FrmInicio extends JFrame{
         cerrarButton.addActionListener(listener);
         miniButton.addActionListener(listener);
         ventas.addActionListener(listener);
+        mantenimiento.addActionListener(listener);
+        servicios.addActionListener(listener);
+        marcaButton.addActionListener(listener);
+        
     }
     
      public String getUserNameString() {
@@ -230,6 +272,8 @@ public class FrmInicio extends JFrame{
     
     public void Dimension(){
         panelSecundario.setSize(300, 600);
+        panelServicio.setSize(1000, 600);
+        panelMantenimiento.setSize(1000, 600);
     }
             
    
@@ -239,6 +283,10 @@ public class FrmInicio extends JFrame{
        
        //Imagem principal del JFrame
        imageCafeteria.setBounds(510, 100, 400, 400);
+       
+       panelServicio.setBounds(0, 50, 1000, 600);
+       
+       panelMantenimiento.setBounds(0, 50, 1000, 600);
        
        
        //User name label
@@ -274,46 +322,49 @@ public class FrmInicio extends JFrame{
        buscarField.setBounds(510, 30, 300, 35);
        
        //Boton de ventas
-       ventas.setBounds(350, 150, 150, 150);
+       ventas.setBounds(350, 50, 150, 150);
        
        //Label ventas
-       ventasLabel.setBounds(400, 240, 150, 150);
+       ventasLabel.setBounds(400, 150, 150, 150);
        
        
        //Clientes
-       cliente.setBounds(575, 150, 150, 150);
+       cliente.setBounds(575, 50, 150, 150);
        
        //Clientes label
-       clientesLabel.setBounds(610, 240, 150, 150);
+       clientesLabel.setBounds(610, 150, 150, 150);
        
        
        //Cafeterias
-       cafeteria.setBounds(790, 150, 150, 150);
+       cafeteria.setBounds(790, 50, 150, 150);
        
        //Cafeteria Label
-       cafeteriaLabel.setBounds(815, 240, 150, 150);
+       cafeteriaLabel.setBounds(815, 150, 150, 150);
        
        
        //Proveedores
-       proveedores.setBounds(350, 380, 150, 150);
+       proveedores.setBounds(350, 280, 150, 150);
        
        
        //Proveedores label
-       proovedoresLabel.setBounds(358, 475, 150, 150);
+       proovedoresLabel.setBounds(358, 375, 150, 150);
        
        //Inventario
-       inventario.setBounds(575, 380, 150, 150);
+       inventario.setBounds(575, 280, 150, 150);
        
        //Inventario label
-       inventarioLabel.setBounds(600, 475, 150, 150);
+       inventarioLabel.setBounds(600, 375, 150, 150);
        
        
        //Articulo button
-       articuloButton.setBounds(790, 380, 150, 150);
+       articuloButton.setBounds(790, 280, 150, 150);
        
        //Articulo label
-       articuloLabel.setBounds(815, 475, 150, 150);
+       articuloLabel.setBounds(815, 375, 150, 150);
        
+       //Marca mantenimiento
+       marcaButton.setBounds(350, 50, 150, 150);
+       marcaLabel.setBounds(385, 150, 150, 150);
        
     }
     
@@ -325,6 +376,10 @@ public class FrmInicio extends JFrame{
        
        panelPrincipal.setBackground(Color.WHITE);
        panelSecundario.setBackground(colorSecundario);
+       
+       panelServicio.setBackground(Color.white);
+       
+       panelMantenimiento.setBackground(Color.white);
        
        //Icon panel 
        iconPanel.setIcon(res.ColocarImagen("/view/imagenes/user.png"));
@@ -464,5 +519,20 @@ public class FrmInicio extends JFrame{
        //Label articulo
        articuloLabel.setFont(labelFont);
        articuloLabel.setForeground(colorPrincipal);
+       
+       
+       
+       //Panel mantenimiento
+       
+       //Boton de marca
+       marcaButton.setIcon(res.ColocarImagen("/view/imagenes/cafeteria.png"));
+       marcaButton.setBackground(null);
+       marcaButton.setBorder(null);
+       marcaButton.setFocusable(false);
+       
+        //Label marcas
+       marcaLabel.setFont(labelFont);
+       marcaLabel.setForeground(colorPrincipal);
+       
     }
 }

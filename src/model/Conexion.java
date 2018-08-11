@@ -17,8 +17,8 @@ import java.sql.SQLException;
 public class Conexion {
     public static Connection Cont;
     static String Driver = "com.mysql.jdbc.Driver";
-    static String User = "";
-    static String Password = "";
+    static String User = "root";
+    static String Password = "1234";
     static String Url = "jdbc:mysql://localhost:3306/cafeteria?zeroDateTimeBehavior=convertToNull";
     
     

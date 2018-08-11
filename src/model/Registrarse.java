@@ -17,7 +17,7 @@ public class Registrarse extends Conexion{
         
         PreparedStatement Registrar;
       
-        String SentenciaSQL1 = "insert into usuario(UserName, Email, uPassword, TipoUsuario) values(?,?,?,?)";
+        String SentenciaSQL1 = "insert into usuario(UserName, Email, uPassword, idTipoUsuario) values(?,?,?,?)";
       
         try{
            Registrar = Cont.prepareStatement(SentenciaSQL1);
